@@ -1781,3 +1781,51 @@ button,
     color: white;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
+
+/* ==================== 照片懶加載優化 ==================== */
+img.lazy-load {
+    background: linear-gradient(110deg, #f0f0f0 8%, #f8f8f8 18%, #f0f0f0 33%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s linear infinite;
+    min-height: 200px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+img.lazy-load:not([src]) {
+    opacity: 0.6;
+}
+
+img.lazy-load.loaded {
+    animation: none;
+    background: none;
+    opacity: 1;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* 照片容器優化 */
+.photo-grid,
+.photo-grid-two,
+.photo-grid-four,
+.photo-carousel {
+    will-change: transform;
+    contain: layout style paint;
+}
+
+/* 減少輪播圖記憶體使用 */
+.carousel-img:not(.active) {
+    visibility: hidden;
+    position: absolute;
+}
+
+.carousel-img.active {
+    visibility: visible;
+    position: relative;
+}
