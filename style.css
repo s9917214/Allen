@@ -514,6 +514,24 @@ body {
     color: #155724;
 }
 
+.project-role {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.role-leader {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.role-member {
+    background: #fff3cd;
+    color: #856404;
+}
+
 .project-title {
     font-size: 1.8rem;
     color: var(--color-primary);
